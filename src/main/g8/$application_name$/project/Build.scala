@@ -1,6 +1,6 @@
 import sbt._
 import Keys._
-import PlayProject._
+import play.Project._
 
 object ApplicationBuild extends Build {
 
@@ -10,7 +10,7 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq( // Add your project dependencies here,
   )
 
-  val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
+  val main = play.Project(appName, appVersion, appDependencies).settings(
     lessEntryPoints <<= (sourceDirectory in Compile)(base => (
       (base / "assets" / "stylesheets" / "bootstrap" / "bootstrap.less") +++
       (base / "assets" / "stylesheets" / "bootstrap" / "responsive.less")))
